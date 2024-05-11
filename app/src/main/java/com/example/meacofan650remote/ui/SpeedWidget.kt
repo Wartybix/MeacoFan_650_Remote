@@ -25,7 +25,7 @@ fun SpeedWidget(
 ) {
     ElevatedCard(modifier = modifier) {
         Row(
-            modifier = modifier.padding(8.dp),
+            modifier = Modifier.padding(8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
