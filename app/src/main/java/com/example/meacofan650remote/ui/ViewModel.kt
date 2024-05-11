@@ -16,12 +16,12 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
-    val irManager: ConsumerIrManager = context.getSystemService(
+    val irManager: ConsumerIrManager? = context.getSystemService(
         Context.CONSUMER_IR_SERVICE
-    ) as ConsumerIrManager
+    ) as ConsumerIrManager?
 
     init {
-        _uiState.value.irSupported = irManager.hasIrEmitter()
+        _uiState.value.irSupported = irManager?.hasIrEmitter() ?: false
     }
 
     fun broadcastSignal(function: RemoteFunction) {

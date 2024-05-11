@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.meacofan650remote.ui.OverallScreen
 import com.example.meacofan650remote.ui.RemoteScreen
 import com.example.meacofan650remote.ui.TopAppBar
 import com.example.meacofan650remote.ui.theme.MeacoFan650RemoteTheme
@@ -15,14 +17,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             MeacoFan650RemoteTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    topBar = { TopAppBar() }
-                ) { innerPadding ->
-                    RemoteScreen(paddingValues = innerPadding)
-                }
+                OverallScreen()
             }
         }
     }
