@@ -25,6 +25,13 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun broadcastSignal(function: RemoteFunction) {
+	val PULSE_MICROSECONDS = 600
 
+	val pattern = function.signals.mapIndexed { index, pauseTime ->
+	    if (index == 0)
+		PULSE_MICROSECONDS + pauseTime + PULSE_MICROSECONDS
+	    else
+		pauseTime, PULSE_MICROSECONDS
+	}
     }
 }
