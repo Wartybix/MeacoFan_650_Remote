@@ -33,5 +33,7 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
 	    else
 		pauseTime, PULSE_MICROSECONDS
 	}
+
+	irManager.transmit(pattern)
     }
 }
