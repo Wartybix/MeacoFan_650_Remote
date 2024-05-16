@@ -1,6 +1,6 @@
 package com.example.meacofan650remote.data
 
-enum class RemoteFunction(signals: List<IRSignal>) {
+enum class RemoteFunction(val signals: List<IRSignal>) {
     POWER(listOf(
         IRSignal.ZERO,
         IRSignal.ZERO,
