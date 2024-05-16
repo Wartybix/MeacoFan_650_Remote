@@ -13,12 +13,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class ViewModel(application: Application) : AndroidViewModel(application) {
-    val context = application.applicationContext
-
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
-    val irManager: ConsumerIrManager? = context.getSystemService(
+    private val irManager: ConsumerIrManager? = application.applicationContext.getSystemService(
         Context.CONSUMER_IR_SERVICE
     ) as ConsumerIrManager?
 
