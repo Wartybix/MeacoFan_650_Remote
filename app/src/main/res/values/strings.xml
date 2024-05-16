@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MeacoFan 650 Remote</string>
+    <string name="speed">Speed</string>
+    <string name="increase_speed">Increase Speed</string>
+    <string name="decrease_speed">Decrease Speed</string>
+    <string name="eco">Eco</string>
+    <string name="oscillate">Oscillate</string>
+    <string name="light">Light</string>
+    <string name="mute">Mute</string>
+    <string name="timer">Timer</string>
+    <string name="power">Power</string>
+    <string name="device_not_supported">Device not supported</string>
+    <string name="use_ir_blaster">Please use this app with a device with an IR blaster.</string>
 </resources>

@@ -16,8 +16,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.meacofan650remote.R
 
 @Composable
 fun SpeedWidget(
@@ -36,16 +38,16 @@ fun SpeedWidget(
                 modifier = Modifier.padding(start = 8.dp)
             ) {
                 Icon(imageVector = Icons.Default.Speed, contentDescription = null)
-                Text(text = "Speed", style = MaterialTheme.typography.labelMedium)
+                Text(text = stringResource(R.string.speed), style = MaterialTheme.typography.labelMedium)
             }
 
             Column {
                 FilledTonalIconButton(onClick = increaseFunction) {
-                    Icon(imageVector = Icons.Default.Add, contentDescription = "Increase Speed")
+                    Icon(imageVector = Icons.Default.Add, contentDescription = stringResource(R.string.increase_speed))
                 }
 
                 FilledTonalIconButton(onClick = decreaseFunction) {
-                    Icon(imageVector = Icons.Default.Remove, contentDescription = "Decrease Speed")
+                    Icon(imageVector = Icons.Default.Remove, contentDescription = stringResource(R.string.decrease_speed))
                 }
             }
         }

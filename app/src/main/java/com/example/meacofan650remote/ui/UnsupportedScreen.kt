@@ -14,9 +14,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.meacofan650remote.R
 
 @Composable
 fun UnsupportedScreen(
@@ -40,14 +42,14 @@ fun UnsupportedScreen(
         )
 
         Text(
-            text = "Device not supported",
+            text = stringResource(R.string.device_not_supported),
             style = MaterialTheme.typography.titleLarge
         )
         
         Spacer(modifier = Modifier.size(8.dp))
 
         Text(
-            text = "Please use this app with a device with an IR blaster.",
+            text = stringResource(R.string.use_ir_blaster),
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center
         )

@@ -18,8 +18,10 @@ import androidx.compose.material.icons.outlined.VolumeOff
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.meacofan650remote.R
 import com.example.meacofan650remote.data.RemoteFunction
 
 @Composable
@@ -52,7 +54,7 @@ fun RemoteScreen(
 
                 RemoteButton(
                     icon = Icons.Outlined.Eco,
-                    text = "Eco",
+                    text = stringResource(R.string.eco),
                     modifier = Modifier.weight(1f)
                 ) {
                     transmitFunction(RemoteFunction.ECO)
@@ -61,7 +63,7 @@ fun RemoteScreen(
 
                 RemoteButton(
                     icon = Icons.Outlined.RotateLeft,
-                    text = "Oscillate",
+                    text = stringResource(R.string.oscillate),
                     modifier = Modifier.weight(1f)
                 ) {
                     transmitFunction(RemoteFunction.OSCILLATION)
@@ -74,7 +76,7 @@ fun RemoteScreen(
             ) {
                 RemoteButton(
                     icon = Icons.Outlined.BrightnessMedium,
-                    text = "Light",
+                    text = stringResource(R.string.light),
                     modifier = Modifier.weight(1f)
                 ) {
                     transmitFunction(RemoteFunction.LIGHT)
@@ -82,7 +84,7 @@ fun RemoteScreen(
 
                 RemoteButton(
                     icon = Icons.Outlined.VolumeOff,
-                    text = "Mute",
+                    text = stringResource(R.string.mute),
                     modifier = Modifier.weight(1f)
                 ) {
                     transmitFunction(RemoteFunction.MUTE)
@@ -97,7 +99,7 @@ fun RemoteScreen(
             ) {
                 RemoteButton(
                     icon = Icons.Outlined.Timer,
-                    text = "Timer",
+                    text = stringResource(R.string.timer),
                     modifier = Modifier.weight(1f)
                 ) {
                     transmitFunction(RemoteFunction.TIMER)
@@ -105,7 +107,7 @@ fun RemoteScreen(
 
                 RemoteButton(
                     icon = Icons.Outlined.PowerSettingsNew,
-                    text = "Power",
+                    text = stringResource(R.string.power),
                     emphasise = true,
                     modifier = Modifier.weight(1f)
                 ) {
