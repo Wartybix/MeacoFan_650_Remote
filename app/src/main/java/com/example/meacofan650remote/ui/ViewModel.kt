@@ -5,6 +5,7 @@ import android.content.Context
 import android.hardware.ConsumerIrManager
 import androidx.lifecycle.AndroidViewModel
 import com.example.meacofan650remote.data.IRSignal
+import com.example.meacofan650remote.data.IdentificationMsg
 import com.example.meacofan650remote.data.RemoteFunction
 import com.example.meacofan650remote.data.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,11 +27,15 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun broadcastSignal(function: RemoteFunction) {
-        val PULSE_MICROSECONDS = 600
+        val fullSignal = IdentificationMsg.pattern + function.signals
 
-        val pattern = function.signals.mapIndexed { index, pauseTime ->
+        val pattern = fullSignal.mapIndexed { index, pauseTime ->
             if (index == 0)
-                listOf(IRSignal.PULSE.microSec, pauseTime.microSec, IRSignal.PULSE.microSec)
+                listOf(
+                    IRSignal.INITIALIZATION_PULSE.microSec,
+                    pauseTime.microSec,
+                    IRSignal.PULSE.microSec
+                )
             else
                 listOf(pauseTime.microSec, IRSignal.PULSE.microSec)
         }.flatten().toIntArray()
