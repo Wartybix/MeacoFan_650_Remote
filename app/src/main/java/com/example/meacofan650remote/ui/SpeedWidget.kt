@@ -21,6 +21,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun SpeedWidget(
+    increaseFunction: () -> Unit,
+    decreaseFunction: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     ElevatedCard(modifier = modifier) {
@@ -38,11 +40,11 @@ fun SpeedWidget(
             }
 
             Column {
-                FilledTonalIconButton(onClick = { /*TODO*/ }) {
+                FilledTonalIconButton(onClick = increaseFunction) {
                     Icon(imageVector = Icons.Default.Add, contentDescription = "Increase Speed")
                 }
 
-                FilledTonalIconButton(onClick = { /*TODO*/ }) {
+                FilledTonalIconButton(onClick = decreaseFunction) {
                     Icon(imageVector = Icons.Default.Remove, contentDescription = "Decrease Speed")
                 }
             }
@@ -54,5 +56,5 @@ fun SpeedWidget(
 @Preview
 @Composable
 fun SpeedWidgetPreview() {
-    SpeedWidget()
+    SpeedWidget(increaseFunction = {}, decreaseFunction = {})
 }

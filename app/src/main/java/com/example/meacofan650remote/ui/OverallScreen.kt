@@ -18,7 +18,10 @@ fun OverallScreen(
         topBar = { TopAppBar() }
     ) { innerPadding ->
         if (uiState.irSupported)
-            RemoteScreen(paddingValues = innerPadding)
+            RemoteScreen(
+                paddingValues = innerPadding,
+                transmitFunction = { viewModel.broadcastSignal(it) }
+            )
         else
             UnsupportedScreen()
     }

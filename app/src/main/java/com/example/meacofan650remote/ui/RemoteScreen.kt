@@ -20,10 +20,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.meacofan650remote.data.RemoteFunction
 
 @Composable
 fun RemoteScreen(
     modifier: Modifier = Modifier,
+    transmitFunction: (RemoteFunction) -> Unit,
     paddingValues: PaddingValues = PaddingValues()
 ) {
     Box(modifier = modifier
@@ -37,20 +39,32 @@ fun RemoteScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         )
         {
-            SpeedWidget(modifier = Modifier.padding(bottom = 16.dp))
+            SpeedWidget(
+                increaseFunction = { transmitFunction(RemoteFunction.SPEED_UP) },
+                decreaseFunction = { transmitFunction(RemoteFunction.SPEED_DOWN) },
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
 
-                RemoteButton(icon = Icons.Outlined.Eco, text = "Eco", modifier = Modifier.weight(1f)) {
-
+                RemoteButton(
+                    icon = Icons.Outlined.Eco,
+                    text = "Eco",
+                    modifier = Modifier.weight(1f)
+                ) {
+                    transmitFunction(RemoteFunction.ECO)
                 }
 
 
-                RemoteButton(icon = Icons.Outlined.RotateLeft, text = "Oscillate", modifier = Modifier.weight(1f)) {
-
+                RemoteButton(
+                    icon = Icons.Outlined.RotateLeft,
+                    text = "Oscillate",
+                    modifier = Modifier.weight(1f)
+                ) {
+                    transmitFunction(RemoteFunction.OSCILLATION)
                 }
             }
 
@@ -58,12 +72,20 @@ fun RemoteScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                RemoteButton(icon = Icons.Outlined.BrightnessMedium, text = "Light", modifier = Modifier.weight(1f)) {
-
+                RemoteButton(
+                    icon = Icons.Outlined.BrightnessMedium,
+                    text = "Light",
+                    modifier = Modifier.weight(1f)
+                ) {
+                    transmitFunction(RemoteFunction.LIGHT)
                 }
 
-                RemoteButton(icon = Icons.Outlined.VolumeOff, text = "Mute", modifier = Modifier.weight(1f)) {
-
+                RemoteButton(
+                    icon = Icons.Outlined.VolumeOff,
+                    text = "Mute",
+                    modifier = Modifier.weight(1f)
+                ) {
+                    transmitFunction(RemoteFunction.MUTE)
                 }
 
 
@@ -73,12 +95,21 @@ fun RemoteScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                RemoteButton(icon = Icons.Outlined.Timer, text = "Timer", modifier = Modifier.weight(1f)) {
-
+                RemoteButton(
+                    icon = Icons.Outlined.Timer,
+                    text = "Timer",
+                    modifier = Modifier.weight(1f)
+                ) {
+                    transmitFunction(RemoteFunction.TIMER)
                 }
 
-                RemoteButton(icon = Icons.Outlined.PowerSettingsNew, text = "Power", emphasise = true, modifier = Modifier.weight(1f)) {
-
+                RemoteButton(
+                    icon = Icons.Outlined.PowerSettingsNew,
+                    text = "Power",
+                    emphasise = true,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    transmitFunction(RemoteFunction.POWER)
                 }
             }
         }
@@ -90,5 +121,5 @@ fun RemoteScreen(
 @Preview
 @Composable
 fun RemoteScreenPreview() {
-    RemoteScreen()
+    RemoteScreen(transmitFunction = {})
 }

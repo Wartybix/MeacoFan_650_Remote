@@ -24,7 +24,7 @@ fun RemoteButton(
     text: String,
     modifier: Modifier = Modifier,
     emphasise: Boolean = false,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     val content: @Composable RowScope.() -> Unit by remember {
         mutableStateOf({
